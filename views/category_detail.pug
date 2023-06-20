@@ -1,0 +1,9 @@
+extends layout.pug 
+
+block content
+   h2=category.name
+   p=category.description
+   a(href=`${category.url}/delete`)
+      button Delete category 
+   a(href=`${category.url}/update`)
+      button Update category 

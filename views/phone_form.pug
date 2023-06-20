@@ -1,0 +1,24 @@
+extends layout.pug 
+
+block content 
+    form(action="" method="post")
+        label(for="name") Name: 
+            input(type="text" id="name" name="name" value= phone ? phone.name : "")
+        label(for="description") Description: 
+            input(type="text" id="description" name="description" value= phone? phone.description : "")
+        label(for="price") Price: 
+            input(type="number" id="price" name="price" value= phone? phone.price : "")
+        label(for="numberInStock") Number in stock: 
+            input(type="number" id="numberInStock" name="numberInStock" value= phone ? phone.numberInStock : "")
+        label(for="category") 
+            select(name="category") 
+                each category in categories 
+                    option(value=category.name, selected=category.selected)=category.name
+        if state === "updating" 
+            label(for="secretpassword") Secret Password: 
+                input(type="password" name="secretpassword" required="true")
+        if errors
+            each error in errors 
+                p(style="color: red")=error.msg
+        input(type="submit" value="Update") 
+        

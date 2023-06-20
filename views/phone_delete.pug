@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1 #{title}: #{phone.name}
+
+    p Do you really want to delete this phone?
+
+    form(method='POST' action='')
+      div.form-group
+        input#phoneid.form-control(type='hidden',name='phoneid', required='true', value=phone.id )
+        label(for="secretpassword") Secret Password: 
+          input(type="password" name="secretpassword" required="true")
+        if errors 
+          each error in errors 
+            p=error.msg
+      button.btn.btn-primary(type='submit') Delete

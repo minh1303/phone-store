@@ -1,0 +1,14 @@
+extends layout.pug 
+
+block content
+   h2=phone.name
+   p=phone.description
+   p Brand: 
+      a(href=phone.category.url) #{phone.category.name}
+   p Price: #{phone.price}$ 
+   p=phone.numberInStock ? `Stock: ${phone.numberInStock}` : `Out of stock`
+   a(href=`${phone.url}/delete`)
+      button Delete phone 
+   a(href=`${phone.url}/update`)
+      button Update phone 
+   

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    h1 #{title}: #{category.name}
+    if category_phones.length
+      p You have to delete these phones before deleting this category
+      each phone in category_phones
+        p - 
+          a(href=phone.url) #{phone.name} 
+
+    else 
+      p Do you really want to delete this category?
+
+      form(method='POST' action='')
+        div.form-group
+          input#categoryname.form-control(type='hidden',name='categoryname', required='true', value=category.name )
+        label(for="secretpassword") Secret Password: 
+          input(type="password" name="secretpassword" required="true")
+        if errors 
+          each error in errors 
+            p=error.msg
+        button.btn.btn-primary(type='submit') Delete
+
+

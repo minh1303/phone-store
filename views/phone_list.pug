@@ -1,0 +1,8 @@
+extends layout.pug 
+
+block content 
+    each phone in phone_list
+        h2
+            a(href=phone.url) #{phone.name} 
+            p - $#{phone.price}
+        

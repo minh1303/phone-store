@@ -1,0 +1,29 @@
+html
+    head 
+        link(rel="stylesheet", href="/stylesheets/style.css")
+        title #{title}
+    body
+        header
+            h1(class="") Phone Store
+            nav
+                ul
+                    li
+                        a(href="/catalog/phones") Phones
+                    li 
+                        a(href="/catalog/categories") Categories
+        section
+            div(class="sidebar")
+                ul 
+                    li 
+                        a(href="/catalog/phones") All phones
+                    li 
+                        a(href="/catalog/categories") All categories
+                    li 
+                        a(href="/catalog/phones/create") New phone
+                    li
+                        a(href="/catalog/categories/create") New Category
+                    
+            div(class="content")
+                block content 
+
+
